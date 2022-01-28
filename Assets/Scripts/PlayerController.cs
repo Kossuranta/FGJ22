@@ -63,7 +63,8 @@ namespace TarodevController {
             if (Input.JumpDown) {
                 _lastJumpPressed = Time.time;
             }
-            else if(Input.StartRolling) {
+            //starts rolling if speed is high enough
+            else if(Input.StartRolling && Mathf.Abs(_currentHorizontalSpeed) > _speedWhenRollingStops) {
                 _rolling = true;
                 Debug.Log("started rolling");
             }
