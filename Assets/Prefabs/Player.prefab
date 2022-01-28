@@ -107,9 +107,14 @@ MonoBehaviour:
   _detectionRayLength: 0.1
   _rayBuffer: 0.1
   _acceleration: 90
-  _moveClamp: 13
+  _moveClamp: 10
   _deAcceleration: 60
   _apexBonus: 2
+  _accelerationRolling: 90
+  _moveClampRolling: 15
+  _deAccelerationRolling: 15
+  _apexBonusRolling: 2
+  _speedWhenRollingStops: 5
   _fallClamp: -40
   _minFallSpeed: 80
   _maxFallSpeed: 120

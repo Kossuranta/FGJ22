@@ -36,7 +36,13 @@ namespace TarodevController {
             GatherInput();
             RunCollisionChecks();
 
-            CalculateWalk(); // Horizontal movement
+            if(_rolling) {
+                CalculateRoll(); // Faster Horizontal movement
+            }
+            else {
+                CalculateWalk(); // Horizontal movement
+            }
+
             CalculateJumpApex(); // Affects fall speed, so calculate before gravity
             CalculateGravity(); // Vertical movement
             CalculateJump(); // Possibly overrides vertical
@@ -51,10 +57,15 @@ namespace TarodevController {
             Input = new FrameInput {
                 JumpDown = UnityEngine.Input.GetButtonDown("Jump"),
                 JumpUp = UnityEngine.Input.GetButtonUp("Jump"),
+                StartRolling = UnityEngine.Input.GetButtonDown("StartRolling"),
                 X = UnityEngine.Input.GetAxisRaw("Horizontal")
             };
             if (Input.JumpDown) {
                 _lastJumpPressed = Time.time;
+            }
+            else if(Input.StartRolling) {
+                _rolling = true;
+                Debug.Log("started rolling");
             }
         }
 
@@ -166,6 +177,45 @@ namespace TarodevController {
             else {
                 // No input. Let's slow the character down
                 _currentHorizontalSpeed = Mathf.MoveTowards(_currentHorizontalSpeed, 0, _deAcceleration * Time.deltaTime);
+            }
+
+            if (_currentHorizontalSpeed > 0 && _colRight || _currentHorizontalSpeed < 0 && _colLeft) {
+                // Don't walk through walls
+                _currentHorizontalSpeed = 0;
+            }
+        }
+
+        #endregion
+
+        #region Roll
+
+        [Header("ROLLING")] [SerializeField] private float _accelerationRolling = 90;
+        [SerializeField] private float _moveClampRolling = 13;
+        [SerializeField] private float _deAccelerationRolling = 10f;
+        [SerializeField] private float _apexBonusRolling = 2;
+        [SerializeField] private float _speedWhenRollingStops = 10f;
+        private bool _rolling = false;
+
+        private void CalculateRoll() {
+            if (Input.X != 0) {
+                // Set horizontal move speed
+                _currentHorizontalSpeed += Input.X * _accelerationRolling * Time.deltaTime;
+
+                // clamped by max frame movement
+                _currentHorizontalSpeed = Mathf.Clamp(_currentHorizontalSpeed, -_moveClampRolling, _moveClampRolling);
+
+                // Apply bonus at the apex of a jump
+                var apexBonus = Mathf.Sign(Input.X) * _apexBonusRolling * _apexPoint;
+                _currentHorizontalSpeed += _apexBonusRolling * Time.deltaTime;
+            }
+            else {
+                // No input. Let's slow the character down
+                _currentHorizontalSpeed = Mathf.MoveTowards(_currentHorizontalSpeed, 0, _deAccelerationRolling * Time.deltaTime);
+
+                if (Mathf.Abs(_currentHorizontalSpeed) < _speedWhenRollingStops) {
+                    _rolling = false;
+                    Debug.Log("rolling stopped");
+                }
             }
 
             if (_currentHorizontalSpeed > 0 && _colRight || _currentHorizontalSpeed < 0 && _colLeft) {

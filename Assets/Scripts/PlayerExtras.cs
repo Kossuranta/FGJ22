@@ -7,6 +7,7 @@ namespace TarodevController {
         public float X;
         public bool JumpDown;
         public bool JumpUp;
+        public bool StartRolling;
     }
 
     public interface IPlayerController {
