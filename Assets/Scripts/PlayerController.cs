@@ -79,6 +79,7 @@ namespace TarodevController {
         [SerializeField] private int _detectorCount = 3;
         [SerializeField] private float _detectionRayLength = 0.1f;
         [SerializeField] [Range(0.1f, 0.3f)] private float _rayBuffer = 0.1f; // Prevents side detectors hitting the ground
+        [SerializeField] private float _airTimeNeededForDeath = 6;
 
         private RayRange _raysUp, _raysRight, _raysDown, _raysLeft;
         private bool _colUp, _colRight, _colDown, _colLeft;
@@ -97,6 +98,10 @@ namespace TarodevController {
             else if (!_colDown && groundedCheck) {
                 _coyoteUsable = true; // Only trigger when first touching
                 LandingThisFrame = true;
+
+                if(_airTime >= _airTimeNeededForDeath) GetComponent<KillPlayer>().playerDies();
+
+                _airTime = 0;
             }
 
             _colDown = groundedCheck;
@@ -155,7 +160,6 @@ namespace TarodevController {
 
         #endregion
 
-
         #region Walk
 
         [Header("WALKING")] [SerializeField] private float _acceleration = 90;
@@ -195,6 +199,7 @@ namespace TarodevController {
         [SerializeField] private float _deAccelerationRolling = 10f;
         [SerializeField] private float _apexBonusRolling = 2;
         [SerializeField] private float _speedWhenRollingStops = 10f;
+        [SerializeField] private float sidewaysSpeedNeededForDeath = 15;
         private bool _rolling = false;
 
         private void CalculateRoll() {
@@ -213,14 +218,14 @@ namespace TarodevController {
                 // No input. Let's slow the character down
                 _currentHorizontalSpeed = Mathf.MoveTowards(_currentHorizontalSpeed, 0, _deAccelerationRolling * Time.deltaTime);
 
-                if (Mathf.Abs(_currentHorizontalSpeed) < _speedWhenRollingStops) {
-                    _rolling = false;
-                    Debug.Log("rolling stopped");
-                }
+                if (Mathf.Abs(_currentHorizontalSpeed) < _speedWhenRollingStops) _rolling = false;
             }
 
             if (_currentHorizontalSpeed > 0 && _colRight || _currentHorizontalSpeed < 0 && _colLeft) {
-                // Don't walk through walls
+                // Kill player when rolling into wall too fast.
+                if(Mathf.Abs(_currentHorizontalSpeed) >= sidewaysSpeedNeededForDeath) GetComponent<KillPlayer>().playerDies();
+                
+                //stops player from going through walls
                 _currentHorizontalSpeed = 0;
             }
         }
@@ -264,6 +269,7 @@ namespace TarodevController {
         private bool _endedJumpEarly = true;
         private float _apexPoint; // Becomes 1 at the apex of a jump
         private float _lastJumpPressed;
+        private float _airTime=0;
         private bool CanUseCoyote => _coyoteUsable && !_colDown && _timeLeftGrounded + _coyoteTimeThreshold > Time.time;
         private bool HasBufferedJump => _colDown && _lastJumpPressed + _jumpBuffer > Time.time;
 
@@ -272,6 +278,8 @@ namespace TarodevController {
                 // Gets stronger the closer to the top of the jump
                 _apexPoint = Mathf.InverseLerp(_jumpApexThreshold, 0, Mathf.Abs(Velocity.y));
                 _fallSpeed = Mathf.Lerp(_minFallSpeed, _maxFallSpeed, _apexPoint);
+
+                _airTime = _airTime + Time.deltaTime;
             }
             else {
                 _apexPoint = 0;
