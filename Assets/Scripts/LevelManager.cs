@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -7,6 +8,12 @@ public class LevelManager : MonoBehaviour
     
     [SerializeField]
     Checkpoint[] checkpoints = null;
+
+    void Awake()
+    {
+        if (levelStartPos == null) Debug.LogError($"levelStartPos is null!", this);
+        if (checkpoints == null || checkpoints.Length == 0) Debug.LogError($"checkpoints array is empty!", this);
+    }
 
     public void Start()
     {
