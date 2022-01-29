@@ -1,22 +1,24 @@
-using System;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance = null;
+    
     [SerializeField]
     Transform player = null;
-    
-    [SerializeField]
-    Transform levelStartPos = null;
-    
+
     [SerializeField]
     Checkpoint[] checkpoints = null;
+    
+    Vector2 levelStartPos = Vector2.zero;
 
     void Awake()
     {
         if (player == null) Debug.LogError("player is null!", this);
-        if (levelStartPos == null) Debug.LogError($"levelStartPos is null!", this);
+        else levelStartPos = player.position;
         if (checkpoints == null || checkpoints.Length == 0) Debug.LogError($"checkpoints array is empty!", this);
+
+        Instance = this; //Stupid but fast stuff
     }
 
     public void Start()
@@ -33,7 +35,7 @@ public class LevelManager : MonoBehaviour
         player.position = respawnPos;
     }
 
-    public Vector3 GetRespawnPosition()
+    Vector3 GetRespawnPosition()
     {
         for (int i = checkpoints.Length - 1; i >= 0; i--)
         {
@@ -43,7 +45,7 @@ public class LevelManager : MonoBehaviour
                 return checkpoint.GetRespawnPosition();
         }
 
-        return levelStartPos?.position ?? Vector3.zero;
+        return levelStartPos;
     }
 
     public void CheckpointActivated(Checkpoint activatedCheckpoint)

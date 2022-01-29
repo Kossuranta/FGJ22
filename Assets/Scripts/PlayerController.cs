@@ -99,7 +99,7 @@ namespace TarodevController {
                 _coyoteUsable = true; // Only trigger when first touching
                 LandingThisFrame = true;
 
-                if(_airTime >= _airTimeNeededForDeath) GetComponent<KillPlayer>().playerDies();
+                if(_airTime >= _airTimeNeededForDeath) GetComponent<KillPlayer>().PlayerDies();
 
                 _airTime = 0;
             }
@@ -223,7 +223,7 @@ namespace TarodevController {
 
             if (_currentHorizontalSpeed > 0 && _colRight || _currentHorizontalSpeed < 0 && _colLeft) {
                 // Kill player when rolling into wall too fast.
-                if(Mathf.Abs(_currentHorizontalSpeed) >= sidewaysSpeedNeededForDeath) GetComponent<KillPlayer>().playerDies();
+                if(Mathf.Abs(_currentHorizontalSpeed) >= sidewaysSpeedNeededForDeath) GetComponent<KillPlayer>().PlayerDies();
                 
                 //stops player from going through walls
                 _currentHorizontalSpeed = 0;

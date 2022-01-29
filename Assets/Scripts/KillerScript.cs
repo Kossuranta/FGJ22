@@ -7,7 +7,7 @@ public class KillerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<KillPlayer>().playerDies();
+            collision.gameObject.GetComponent<KillPlayer>().PlayerDies();
         }
     }
 }
