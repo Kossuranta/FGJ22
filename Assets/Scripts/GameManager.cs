@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         
+        DontDestroyOnLoad(this);
         Instance = this;
         Setup();
     }
