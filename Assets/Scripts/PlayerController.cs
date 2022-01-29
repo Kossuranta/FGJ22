@@ -50,6 +50,7 @@ namespace TarodevController {
             CalculateJump(); // Possibly overrides vertical
 
             FlipCharacterSpriteAsNecessary(); //flips character facing based on horizontal speed
+            DoAirAnimations(); //Turns air animations on and off as needed
             MoveCharacter(); // Actually perform the axis movement
         }
 
@@ -345,9 +346,11 @@ namespace TarodevController {
                 // _currentVerticalSpeed = 0;
                 _endedJumpEarly = true;
             }
-
+            //hits roof
             if (_colUp) {
-                if (_currentVerticalSpeed > 0) _currentVerticalSpeed = 0;
+                if (_currentVerticalSpeed > 0) {
+                    _currentVerticalSpeed = 0;
+                }
             }
         }
 
@@ -361,6 +364,21 @@ namespace TarodevController {
         private void FlipCharacterSpriteAsNecessary() {
             if (_currentHorizontalSpeed<0) _animatorController.setSpriteFlipX(true);
             else if (_currentHorizontalSpeed>0) _animatorController.setSpriteFlipX(false);
+        }
+
+        private void DoAirAnimations() {
+            if (_currentVerticalSpeed>0 && !_colDown) {
+                _animatorController.playerFlyingUp(true);
+                _animatorController.playerFlyingDown(false);
+            }
+            else if (_currentVerticalSpeed<0 && !_colDown) {
+                _animatorController.playerFlyingUp(false);
+                _animatorController.playerFlyingDown(true);
+            }
+            else {
+                _animatorController.playerFlyingUp(false);
+                _animatorController.playerFlyingDown(false);
+            }
         }
 
         // We cast our bounds before moving to avoid future collisions

@@ -38,7 +38,6 @@ public class PlayerAnimationController : MonoBehaviour {
         if(!isRolling) {
             _playerAnimator.SetBool("Rolling", true);
             isRolling = true;
-            Debug.Log("started rolling");
         }
     }  
 
@@ -47,6 +46,23 @@ public class PlayerAnimationController : MonoBehaviour {
             _playerAnimator.SetBool("Rolling", false);
             isRolling = false;
         }
+    }
+
+    private bool isFlyingUp=false;
+    public void playerFlyingUp(bool state) {
+        if (state != isFlyingUp) {
+            isFlyingUp = state;
+            _playerAnimator.SetBool("InAirUp", state);
+        } 
+    }
+
+    private bool isFlyingDown=false;
+    public void playerFlyingDown(bool state) {
+        if (state != isFlyingDown) {
+            isFlyingDown = state;
+            _playerAnimator.SetBool("InAirDown", state);
+        }
+        
     }
 
     public void playerDies() {
