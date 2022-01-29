@@ -6,7 +6,7 @@ public class SceneOpening : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Door_01"))
+        if(other.gameObject.CompareTag("Player"))
         {
             Debug.Log("asdasdasd");
             if (Input.GetButton("E"))
