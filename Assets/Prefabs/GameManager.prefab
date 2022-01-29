@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf0335cfe3d08d94f9778de6a01f098e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorManagerPrefab: {fileID: 4738127636735331952, guid: 45f3a705c54f85a44838acf0afb624be, type: 3}
+  enabledColors: 2
