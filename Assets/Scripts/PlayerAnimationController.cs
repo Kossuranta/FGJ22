@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour {
     [SerializeField] private Animator _playerAnimator;
-    [SerializeField] private SpriteRenderer playersSpriteRenderer;
+    [SerializeField] private SpriteRenderer playersArtsSpriteRenderer;
+    [SerializeField] private Transform playersArtsTransform;
     private bool isMoving=false, isRolling=false, isDead=false, isFlipped=false;
 
     public void setSpriteFlipX(bool Flip) {
         if (Flip!=isFlipped) {
             if(Flip) {
-                playersSpriteRenderer.flipX=true;
+                playersArtsSpriteRenderer.flipX=true;
                 isFlipped=true;
             } 
             else {
-                playersSpriteRenderer.flipX=false;
+                playersArtsSpriteRenderer.flipX=false;
                 isFlipped=false;
             }
         }
@@ -46,6 +47,14 @@ public class PlayerAnimationController : MonoBehaviour {
             _playerAnimator.SetBool("Rolling", false);
             isRolling = false;
         }
+    }
+
+    private void Update() {
+        if(isRolling) {
+            if(!isFlipped) playersArtsTransform.Rotate (Vector3.forward * -500f * Time.deltaTime);
+            else  playersArtsTransform.Rotate (Vector3.forward * 500f * Time.deltaTime);
+        }
+        else playersArtsTransform.eulerAngles = Vector3.forward * 0f;
     }
 
     private bool isFlyingUp=false;
