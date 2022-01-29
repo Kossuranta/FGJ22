@@ -91,7 +91,7 @@ MonoBehaviour:
   _detectorCount: 3
   _detectionRayLength: 0.1
   _rayBuffer: 0.1
-  _airTimeNeededForDeath: 2
+  _airTimeNeededForDeath: 1.5
   _acceleration: 90
   _moveClamp: 10
   _deAcceleration: 60
