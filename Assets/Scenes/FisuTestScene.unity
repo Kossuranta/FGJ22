@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingPlatform
       objectReference: {fileID: 0}
+    - target: {fileID: 3494425432575481250, guid: 8ea16dd44ce07d547b33aa7ce7511883, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6528600781662186534, guid: 8ea16dd44ce07d547b33aa7ce7511883, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -184,11 +188,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9116991158946765957, guid: 8ea16dd44ce07d547b33aa7ce7511883, type: 3}
       propertyPath: pointA.x
-      value: -15
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 9116991158946765957, guid: 8ea16dd44ce07d547b33aa7ce7511883, type: 3}
       propertyPath: pointB.x
-      value: -10
+      value: -8.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116991158946765957, guid: 8ea16dd44ce07d547b33aa7ce7511883, type: 3}
+      propertyPath: pointB.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9116991158946765957, guid: 8ea16dd44ce07d547b33aa7ce7511883, type: 3}
       propertyPath: movingSpeed
