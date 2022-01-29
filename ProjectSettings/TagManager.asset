@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Door_01
   - PlayerCarryPosition
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

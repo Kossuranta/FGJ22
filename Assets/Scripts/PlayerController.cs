@@ -394,6 +394,11 @@ namespace TarodevController {
                 transform.position += move;
                 return;
             }
+            /*
+            else if (hit.gameObject.tag == "MovingPlatform") {
+                hit.gameObject.GetComponent<FloatingPlatform>().LinkToPlayer(gameObject);
+            }
+            */
 
             // otherwise increment away from current pos; see what closest position we can move to
             var positionToMoveTo = transform.position;
