@@ -10504,6 +10504,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_text
+      value: press "E" to enter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_margin.x
+      value: -23.399658
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_margin.z
+      value: -25.071075
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383361448103367691, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
     - target: {fileID: 6383361448558067868, guid: 051ddde65bcc23447ba3566cbbca55bc, type: 3}
       propertyPath: m_Camera
       value: 
