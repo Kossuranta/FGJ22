@@ -84,7 +84,7 @@ MonoBehaviour:
   _animatorController: {fileID: 5598450476517506062}
   _characterBounds:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 1.5, y: 1.5, z: 0}
+    m_Extent: {x: 1.5, y: 1.45, z: 0}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -260,7 +260,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1118714520, guid: 96d2a2d0c37fcae46a499ad2c988a6cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
