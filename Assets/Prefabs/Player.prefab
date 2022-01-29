@@ -164,7 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 5231728041007219229}
-  playersSpriteRenderer: {fileID: 8516544399334090514}
+  playersArtsSpriteRenderer: {fileID: 8516544399334090514}
+  playersArtsTransform: {fileID: 823992287965058657}
 --- !u!50 &7884765289201527808
 Rigidbody2D:
   serializedVersion: 4
