@@ -43,3 +43,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Purple
+    uniqueID: 1202372465
+    locked: 0
+  - name: Green
+    uniqueID: 3686339511
+    locked: 0
+  - name: Red
+    uniqueID: 2859424271
+    locked: 0
+  - name: Orange
+    uniqueID: 2887876993
+    locked: 0

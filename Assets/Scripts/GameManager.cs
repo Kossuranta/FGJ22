@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     }
     public void EnterLevel(Levels level)
     {
+        LastLevel = CurrentLevel;
+        CurrentLevel = level;
+        
         switch(level)
         {
             case Levels.Hub:
@@ -38,5 +41,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+    public Levels LastLevel { get; private set; } = Levels.Hub;
+    public Levels CurrentLevel { get; private set; } = Levels.Hub;
 }
 
