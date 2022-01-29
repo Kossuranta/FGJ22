@@ -136,9 +136,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abacbfc89ea0c342ae1c065a09ddf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraAdjustX: 6
-  cameraAdjustY: 0
-  cameraAdjustZ: -10
+  gameManager: {fileID: 3086589382848661245, guid: 514cd193beb48344dab5b294f4790bd5, type: 3}
+  dampTime: 0.15
+  cameraOffset: {x: 6, y: 0, z: -10}
 --- !u!81 &8520002017339399406
 AudioListener:
   m_ObjectHideFlags: 0

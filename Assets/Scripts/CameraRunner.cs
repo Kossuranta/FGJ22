@@ -3,23 +3,64 @@ using UnityEngine;
 
 public class CameraRunner : MonoBehaviour
 {
-    Transform player;
-    public float cameraAdjustX = 6;
-    public float cameraAdjustY = 0;
-    public float cameraAdjustZ = -10;
+    [SerializeField]
+    GameManager gameManager = null;
+    
+    [SerializeField]
+    float dampTime = 0.15f;
+
+    [SerializeField]
+    Vector3 cameraOffset = new Vector3(6, 0, -10);
+    
+    PlayerController player = null;
+    new Camera camera = null;
+    
     bool follow = true;
+    
+    Vector3 velocity = Vector3.zero;
 
     void Awake()
     {
-        player = FindObjectOfType<PlayerController>().transform;
+        camera = GetComponent<Camera>();
+        player = FindObjectOfType<PlayerController>();
+        
+        if (camera == null) Debug.LogError("Camera not found!", this);
+        if (player == null) Debug.LogError("Player not found!", this);
+
+        if (GameManager.Instance == null)
+        {
+            Instantiate(gameManager);
+        }
     }
 
-    void Update ()
+    void Update()
     {
         if (!follow) return;
-        
-        Vector2 playerPos = player.position;
-        transform.position = new Vector3 (playerPos.x + cameraAdjustX, playerPos.y + cameraAdjustY, cameraAdjustZ);
+        if (player == null) return;
+        if (camera == null) return;
+
+        if (cameraOffset.x != 0)
+        {
+            if (player.Input.X < -0.1f && player.Velocity.x < -0.1f)
+            {
+                if (cameraOffset.x > 0)
+                    cameraOffset.x = -cameraOffset.x;
+            }
+            else if (player.Input.X > 0.1f && player.Velocity.x > 0.1f)
+            {
+                if (cameraOffset.x < 0)
+                    cameraOffset.x = -cameraOffset.x;
+            }
+        }
+
+        Vector3 playerPos = player.transform.localPosition + cameraOffset;
+        Vector3 point = camera.WorldToViewportPoint(playerPos);
+        Vector3 delta = playerPos - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
+        Vector3 cameraPos = transform.localPosition;
+        Vector3 destination = cameraPos + delta;
+        cameraPos = Vector3.SmoothDamp(cameraPos, destination, ref velocity, dampTime);
+
+        transform.localPosition = cameraPos;
     }
 
     public void ToggleFollow(bool enabled)
