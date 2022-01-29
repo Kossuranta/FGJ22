@@ -24,6 +24,9 @@ public class LevelEnd : MonoBehaviour
     [SerializeField]
     Transform kidnapTarget = null;
 
+    [SerializeField]
+    ColorEnum colorToBeUnlocked = ColorEnum.Green;
+
     Transform playerCarryPosition = null;
     Vector2 kidnapTargetStartPos = Vector2.zero;
 
@@ -91,6 +94,7 @@ public class LevelEnd : MonoBehaviour
             case State.TeleportToHub:
             {
                 enabled = false;
+                GameManager.Instance.ColorToBeUnlocked = colorToBeUnlocked;
                 GameManager.Instance.EnterLevel(Levels.Hub);
                 currentState = State.End;
                 break;

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,9 +37,6 @@ public class GameManager : MonoBehaviour
     
     public void EnterLevel(Levels level)
     {
-        LastLevel = CurrentLevel;
-        CurrentLevel = level;
-        
         switch(level)
         {
             case Levels.Hub:
@@ -50,37 +46,18 @@ public class GameManager : MonoBehaviour
             case Levels.Level_01:
                 SceneManager.LoadScene("Level_01");
                 break;
-            
-            case Levels.Level_02:
-                SceneManager.LoadScene("Level_02");
-                break;
-            
-            case Levels.Level_03:
-                SceneManager.LoadScene("Level_03");
-                break;
         }
     }
 
     public void OnBlenderCompleted()
     {
-        ColorEnum colorToBeEnabled = ColorEnum.None;
-        switch (LastLevel)
-        {
-            case Levels.Level_01:
-                colorToBeEnabled = ColorEnum.Green;
-                break;
-            case Levels.Level_02:
-                colorToBeEnabled = ColorEnum.Purple;
-                break;
-            case Levels.Level_03:
-                colorToBeEnabled = ColorEnum.Orange;
-                break;
-        }
-
-        EnableColor(colorToBeEnabled);
+        if (ColorToBeUnlocked == ColorEnum.None) return;
+        
+        EnableColor(ColorToBeUnlocked);
+        ColorToBeUnlocked = ColorEnum.None;
     }
 
-    public void EnableColor(ColorEnum color)
+    void EnableColor(ColorEnum color)
     {
         if (colorManager == null)
         {
@@ -104,8 +81,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Levels LastLevel { get; private set; } = Levels.Hub;
-    public Levels CurrentLevel { get; private set; } = Levels.Hub;
+    public ColorEnum ColorToBeUnlocked { get; set; } = ColorEnum.None;
     public ColorEnum EnabledColors { get { return enabledColors; } }
 }
 

@@ -10,7 +10,10 @@ public class CameraRunner : MonoBehaviour
     float dampTime = 0.15f;
 
     [SerializeField]
-    Vector3 cameraOffset = new Vector3(6, 0, -10);
+    Vector3 cameraOffset = new Vector3(6f, 0, -10f);
+
+    [SerializeField]
+    Vector3 blenderAnimationPosition = new Vector3(-7f, 2.5f, -10f);
     
     PlayerController player = null;
     new Camera camera = null;
@@ -39,7 +42,12 @@ public class CameraRunner : MonoBehaviour
         if (player == null) return;
         if (camera == null) return;
 
-        if (cameraOffset.x != 0)
+        if (GameManager.Instance.ColorToBeUnlocked != ColorEnum.None) //During blender animation
+        {
+            transform.localPosition = blenderAnimationPosition;
+            return;
+        }
+        else if (cameraOffset.x != 0)
         {
             if (player.Input.X < -0.1f && player.Velocity.x < -0.1f)
             {
