@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,4 +24,14 @@ public class GameManager : MonoBehaviour
         colorSystem = new ColorSystem();
         colorSystem.Setup();
     }
+    public void EnterLevel(Levels level)
+    {
+        switch(level)
+        {
+            case Levels.Level_01:
+            SceneManager.LoadScene("Level_01");
+            break;
+        }
+    }
 }
+

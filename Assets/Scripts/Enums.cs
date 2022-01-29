@@ -8,3 +8,10 @@ public enum ColorEnum
     Green = 1 << 2,
     Blue = 1 << 3,
 }
+public enum Levels
+{
+    Level_01,
+    Level_02,
+    Level_03,
+    Level_04
+}
