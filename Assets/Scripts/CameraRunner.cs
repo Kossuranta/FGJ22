@@ -4,7 +4,9 @@ using UnityEngine;
 public class CameraRunner : MonoBehaviour
 {
     Transform player;
-
+    public float cameraAdjustX = 6;
+    public float cameraAdjustY = 0;
+    public float cameraAdjustZ = -10;
     bool follow = true;
 
     void Awake()
@@ -17,7 +19,7 @@ public class CameraRunner : MonoBehaviour
         if (!follow) return;
         
         Vector2 playerPos = player.position;
-        transform.position = new Vector3 (playerPos.x + 6, playerPos.y + 1 , -10);
+        transform.position = new Vector3 (playerPos.x + cameraAdjustX, playerPos.y + cameraAdjustY, cameraAdjustZ);
     }
 
     public void ToggleFollow(bool enabled)

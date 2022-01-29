@@ -157,6 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider2D: {fileID: 6998247099836210157}
-  pickupDuration: 3
+  pickupDuration: 1
   carryAwayDuration: 7
   kidnapTarget: {fileID: 7599654358978858000}

@@ -25,4 +25,4 @@ MonoBehaviour:
   minSpeed: 1
   maxSpeed: 3
   count: 10
-  maxPosX: 13
+  maxPosX: 30
