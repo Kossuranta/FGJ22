@@ -49,6 +49,7 @@ namespace TarodevController {
             CalculateGravity(); // Vertical movement
             CalculateJump(); // Possibly overrides vertical
 
+            FlipCharacterSpriteAsNecessary(); //flips character facing based on horizontal speed
             MoveCharacter(); // Actually perform the axis movement
         }
 
@@ -333,6 +334,11 @@ namespace TarodevController {
 
         [Header("MOVE")] [SerializeField, Tooltip("Raising this value increases collision accuracy at the cost of performance.")]
         private int _freeColliderIterations = 10;
+        
+        private void FlipCharacterSpriteAsNecessary() {
+            if (_currentHorizontalSpeed<0) _animatorController.setSpriteFlipX(true);
+            else if (_currentHorizontalSpeed>0) _animatorController.setSpriteFlipX(false);
+        }
 
         // We cast our bounds before moving to avoid future collisions
         private void MoveCharacter() {

@@ -332,6 +332,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 527307167249504321, guid: f368788f8475ea642948f3642bc5ea28, type: 3}
+      propertyPath: _speedWhenRollingStops
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 527307167249504323, guid: f368788f8475ea642948f3642bc5ea28, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -379,6 +383,10 @@ PrefabInstance:
     - target: {fileID: 527307167249506239, guid: f368788f8475ea642948f3642bc5ea28, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516544399334090514, guid: f368788f8475ea642948f3642bc5ea28, type: 3}
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f368788f8475ea642948f3642bc5ea28, type: 3}
