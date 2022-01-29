@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour {
     [SerializeField] private Animator _playerAnimator;
-    private bool isMoving=false, isRolling=false;
+    private bool isMoving=false, isRolling=false, isDead=false;
 
+    public void setFacing() {
+        
+    }
 
     public void startMoving() {
         if(!isMoving) {
@@ -33,6 +36,13 @@ public class PlayerAnimationController : MonoBehaviour {
         if (isRolling) {
             _playerAnimator.SetBool("Rolling", false);
             isRolling = false;
+        }
+    }
+
+    public void playerDies() {
+        if (!isDead) {
+            _playerAnimator.SetTrigger("Death");
+            isDead = true;
         }
     }
 }

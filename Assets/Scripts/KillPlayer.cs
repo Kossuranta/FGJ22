@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class KillPlayer : MonoBehaviour
 {
-    [SerializeField]
-    float deathDelay = 3f;
+    [SerializeField] float deathDelay = 3f;
+    [SerializeField] private PlayerAnimationController _animatorController;
 
-    float timer = 0;
+    private float timer = 0;
 
     void Awake()
     {
@@ -18,7 +18,7 @@ public class KillPlayer : MonoBehaviour
         if (enabled) return; //Already dead
         
         Debug.Log("Player dies :)");
-        //animation stuff
+        _animatorController.playerDies();
         timer = 0;
         enabled = true;
     }
