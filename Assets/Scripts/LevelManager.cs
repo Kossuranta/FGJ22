@@ -4,6 +4,9 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField]
+    Transform player = null;
+    
+    [SerializeField]
     Transform levelStartPos = null;
     
     [SerializeField]
@@ -11,6 +14,7 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
+        if (player == null) Debug.LogError("player is null!", this);
         if (levelStartPos == null) Debug.LogError($"levelStartPos is null!", this);
         if (checkpoints == null || checkpoints.Length == 0) Debug.LogError($"checkpoints array is empty!", this);
     }
@@ -21,6 +25,12 @@ public class LevelManager : MonoBehaviour
         {
             checkpoint.Setup(this);
         }
+    }
+
+    public void RespawnPlayer()
+    {
+        Vector3 respawnPos = GetRespawnPosition();
+        player.position = respawnPos;
     }
 
     public Vector3 GetRespawnPosition()
