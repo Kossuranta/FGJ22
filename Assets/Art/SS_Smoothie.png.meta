@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 85b6c8479bb57ff40a04a72417493efa
+guid: 73f7860b9455c9a409d2d6c13b632fd7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -66,7 +66,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -104,12 +104,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SS_Blender_0
+      name: SS_Smoothie_0
       rect:
         serializedVersion: 2
-        x: 183
+        x: 0
         y: 0
-        width: 625
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -118,19 +118,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4193163eaa715e428aa5b1064843f26
-      internalID: 524851444
+      spriteID: 192f2dc39829bb4408bb0b85039d42c2
+      internalID: -1083882044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_1
+      name: SS_Smoothie_1
       rect:
         serializedVersion: 2
-        x: 1188
+        x: 1000
         y: 0
-        width: 623
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -139,19 +139,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b8d5541b4eb3a24cab3418eafe99e20
-      internalID: 393481672
+      spriteID: 6679dd0e8f5cd04459965a76f8649d99
+      internalID: 73526464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_2
+      name: SS_Smoothie_2
       rect:
         serializedVersion: 2
-        x: 2183
+        x: 2000
         y: 0
-        width: 623
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -160,19 +160,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7483574d273ea04bbcfc3d482f0f45c
-      internalID: 2109697787
+      spriteID: 32f73d50c650af94fbe839fbce0bc0d8
+      internalID: 1426978876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_3
+      name: SS_Smoothie_3
       rect:
         serializedVersion: 2
-        x: 3179
+        x: 3000
         y: 0
-        width: 626
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,19 +181,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a835022cbd1870c4188200330540d37b
-      internalID: 495058532
+      spriteID: 39252dc4a7b5b1b4585682b91c41d47d
+      internalID: -1393399299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_4
+      name: SS_Smoothie_4
       rect:
         serializedVersion: 2
-        x: 4184
+        x: 4000
         y: 0
-        width: 622
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -202,19 +202,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b46a18a15cc184e49982ae6c3e6cf48a
-      internalID: 897561276
+      spriteID: bed80699170c0fe4093b59266cd68084
+      internalID: 333124568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_5
+      name: SS_Smoothie_5
       rect:
         serializedVersion: 2
-        x: 5187
+        x: 5000
         y: 0
-        width: 623
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -223,19 +223,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2016aa3dc9b4c73418d469829af3633f
-      internalID: 379919914
+      spriteID: fda3dd21447928e478223db3dc257fb6
+      internalID: -1942225807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_6
+      name: SS_Smoothie_6
       rect:
         serializedVersion: 2
-        x: 6259
+        x: 6000
         y: 0
-        width: 473
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -244,19 +244,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1eeddd512ecb1047b0aed1d12401bfa
-      internalID: -953037315
+      spriteID: be51a9069822471409fc9c1c6652027a
+      internalID: -1387012800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_7
+      name: SS_Smoothie_7
       rect:
         serializedVersion: 2
-        x: 7254
+        x: 7000
         y: 0
-        width: 482
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -265,19 +265,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c91d6aa08bce7514f80429953d404029
-      internalID: -1711226340
+      spriteID: c3c2ae3d98f6ff84698cae93e4e8eb06
+      internalID: -207778011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_8
+      name: SS_Smoothie_8
       rect:
         serializedVersion: 2
-        x: 8249
+        x: 8000
         y: 0
-        width: 483
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -286,82 +286,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac5629633f34cfb45a5c0ec695d2bd67
-      internalID: 68654497
+      spriteID: 8509a685514509849b2e1ef35c7dc96e
+      internalID: -1552655307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_9
+      name: SS_Smoothie_9
       rect:
         serializedVersion: 2
-        x: 9255
-        y: 19
-        width: 482
-        height: 1117
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b3416a4efd27e345bdb7127cd31b36f
-      internalID: 1970896822
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Blender_10
-      rect:
-        serializedVersion: 2
-        x: 10251
+        x: 9000
         y: 0
-        width: 490
-        height: 1135
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f6a23e67f720514da2f7df7f188af2a
-      internalID: -568727903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Blender_11
-      rect:
-        serializedVersion: 2
-        x: 11255
-        y: 4
-        width: 483
-        height: 1132
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 820e1c6549783254690beb65b16613d9
-      internalID: -1253872343
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Blender_12
-      rect:
-        serializedVersion: 2
-        x: 12251
-        y: 0
-        width: 491
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -370,19 +307,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc01dbe22e936304eb6424775c6f9938
-      internalID: 833167288
+      spriteID: 06630da9c2349934bb2960f6590fdbf8
+      internalID: 1373734318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SS_Blender_13
+      name: SS_Smoothie_10
       rect:
         serializedVersion: 2
-        x: 13247
+        x: 10000
         y: 0
-        width: 491
+        width: 1000
         height: 1136
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -391,71 +328,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1206ce09d88673740b97037f2dbf928f
-      internalID: 1175498370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Blender_14
-      rect:
-        serializedVersion: 2
-        x: 14253
-        y: 0
-        width: 480
-        height: 1136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c8d77367a9e18543bd949f7fd7457a3
-      internalID: 913279343
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Blender_15
-      rect:
-        serializedVersion: 2
-        x: 15248
-        y: 0
-        width: 490
-        height: 1136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 110969e17d5561345931e36a7f6a0492
-      internalID: 139598556
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SS_Blender_16
-      rect:
-        serializedVersion: 2
-        x: 16244
-        y: 0
-        width: 491
-        height: 1136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c61abd1955878944a3fef77358769b6
-      internalID: -1371558091
+      spriteID: ec6bc240643daee4a994a89f4bea82d3
+      internalID: -909799082
       vertices: []
       indices: 
       edges: []
@@ -471,23 +345,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SS_Blender_4: 2109697787
-      SS_Blender_14: 833167288
-      SS_Blender_11: 1970896822
-      SS_Blender_5: 495058532
-      SS_Blender_15: 1175498370
-      SS_Blender_0: 524851444
-      SS_Blender_7: 379919914
-      SS_Blender_3: 393481672
-      SS_Blender_10: 68654497
-      SS_Blender_1: 968927791
-      SS_Blender_16: 913279343
-      SS_Blender_12: -568727903
-      SS_Blender_8: -953037315
-      SS_Blender_2: -1355982845
-      SS_Blender_13: -1253872343
-      SS_Blender_9: -1711226340
-      SS_Blender_6: 897561276
+      SS_Smoothie_7: -207778011
+      SS_Smoothie_8: -1552655307
+      SS_Smoothie_0: -1083882044
+      SS_Smoothie_10: -909799082
+      SS_Smoothie_9: 1373734318
+      SS_Smoothie_3: -1393399299
+      SS_Smoothie_4: 333124568
+      SS_Smoothie_6: -1387012800
+      SS_Smoothie_2: 1426978876
+      SS_Smoothie_1: 73526464
+      SS_Smoothie_5: -1942225807
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
