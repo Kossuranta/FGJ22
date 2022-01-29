@@ -13,6 +13,6 @@ public class CameraRunner : MonoBehaviour
     void Update ()
     {
         Vector2 playerPos = player.position;
-        transform.position = new Vector3 (playerPos.x + 6, playerPos.y + 3, -10);
+        transform.position = new Vector3 (playerPos.x + 6, playerPos.y + 1 , -10);
     }
 }
