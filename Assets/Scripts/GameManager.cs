@@ -28,9 +28,13 @@ public class GameManager : MonoBehaviour
     {
         switch(level)
         {
+            case Levels.Hub:
+                SceneManager.LoadScene("Hub");
+                break;
+            
             case Levels.Level_01:
-            SceneManager.LoadScene("Level_01");
-            break;
+                SceneManager.LoadScene("Level_01");
+                break;
         }
     }
 }

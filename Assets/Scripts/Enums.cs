@@ -10,8 +10,9 @@ public enum ColorEnum
 }
 public enum Levels
 {
-    Level_01,
-    Level_02,
-    Level_03,
-    Level_04
+    Hub = 0,
+    Level_01 = 1,
+    Level_02 = 2,
+    Level_03 = 3,
+    Level_04 = 4,
 }
