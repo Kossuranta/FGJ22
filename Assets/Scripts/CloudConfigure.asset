@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clouds:
   - prefab: {fileID: 7690803573555798060, guid: de684b8ca9be6b44baf79236e3dc5683, type: 3}
-    minHeight: 2
-    maxHeight: 3.9
+    minHeight: 3
+    maxHeight: 4.8
   - prefab: {fileID: 7690803573555798060, guid: d8193b11358a3df45a50b30b18bdec1e, type: 3}
-    minHeight: 2
-    maxHeight: 3.9
+    minHeight: 5
+    maxHeight: 7
   - prefab: {fileID: 7690803573555798060, guid: 795b4556c0d6ec440a7cfc3125d1d771, type: 3}
-    minHeight: 2
-    maxHeight: 3.9
-  minSpeed: 1
-  maxSpeed: 3
-  count: 10
-  maxPosX: 30
+    minHeight: 5
+    maxHeight: 6
+  minSpeed: 0.4
+  maxSpeed: 1
+  count: 5
+  maxPosX: 45
