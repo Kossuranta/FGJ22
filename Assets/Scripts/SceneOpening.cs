@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class SceneOpening : MonoBehaviour
 {
-    void Start()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        if(other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("asdasdasd");
+            if (Input.GetButton("E"))
+            {
+                GameManager.Instance.EnterLevel(Levels.Level_01);
+            }
+        }
     }
 }
+

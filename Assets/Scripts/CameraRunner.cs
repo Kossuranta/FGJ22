@@ -8,6 +8,5 @@ public class CameraRunner : MonoBehaviour
     void Update () 
     {
         transform.position = new Vector3 (player.position.x + 6, player.position.y + 3, -10);
-
     }
 }
