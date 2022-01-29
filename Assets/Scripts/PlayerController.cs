@@ -19,6 +19,8 @@ namespace TarodevController {
         public Vector3 RawMovement { get; private set; }
         public bool Grounded => _colDown;
 
+        [SerializeField] private PlayerAnimationController _animatorController;
+
         private Vector3 _lastPosition;
         private float _currentHorizontalSpeed, _currentVerticalSpeed;
 
@@ -66,7 +68,7 @@ namespace TarodevController {
             //starts rolling if speed is high enough
             else if(Input.StartRolling && Mathf.Abs(_currentHorizontalSpeed) > _speedWhenRollingStops) {
                 _rolling = true;
-                Debug.Log("started rolling");
+                _animatorController.startRolling();
             }
         }
 
@@ -178,6 +180,8 @@ namespace TarodevController {
                 // Apply bonus at the apex of a jump
                 var apexBonus = Mathf.Sign(Input.X) * _apexBonus * _apexPoint;
                 _currentHorizontalSpeed += apexBonus * Time.deltaTime;
+
+                _animatorController.startMoving();                
             }
             else {
                 // No input. Let's slow the character down
@@ -187,6 +191,11 @@ namespace TarodevController {
             if (_currentHorizontalSpeed > 0 && _colRight || _currentHorizontalSpeed < 0 && _colLeft) {
                 // Don't walk through walls
                 _currentHorizontalSpeed = 0;
+            }
+
+            if (_currentHorizontalSpeed==0) {
+                _animatorController.stopMoving();
+                _animatorController.stopRolling();
             }
         }
 
@@ -218,7 +227,10 @@ namespace TarodevController {
                 // No input. Let's slow the character down
                 _currentHorizontalSpeed = Mathf.MoveTowards(_currentHorizontalSpeed, 0, _deAccelerationRolling * Time.deltaTime);
 
-                if (Mathf.Abs(_currentHorizontalSpeed) < _speedWhenRollingStops) _rolling = false;
+                if (Mathf.Abs(_currentHorizontalSpeed) < _speedWhenRollingStops) {
+                    _rolling = false;
+                    _animatorController.stopRolling();
+                }
             }
 
             if (_currentHorizontalSpeed > 0 && _colRight || _currentHorizontalSpeed < 0 && _colLeft) {
@@ -227,6 +239,11 @@ namespace TarodevController {
                 
                 //stops player from going through walls
                 _currentHorizontalSpeed = 0;
+            }
+
+            if (_currentHorizontalSpeed==0) {
+                _animatorController.stopMoving();
+                _animatorController.stopRolling();
             }
         }
 
