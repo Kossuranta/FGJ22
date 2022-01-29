@@ -80,7 +80,7 @@ public class LevelEnd : MonoBehaviour
                 timer += Time.deltaTime / carryAwayDuration;
 
                 Vector2 pos = levelManager.Player.position;
-                pos.x = Mathf.Lerp(playerEndTriggerPosX, playerEndTriggerPosX - 15f, timer);
+                pos.x = Mathf.Lerp(playerEndTriggerPosX, playerEndTriggerPosX - 50f, timer);
                 levelManager.Player.position = pos;
 
                 if (timer >= 1)
