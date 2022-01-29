@@ -231,6 +231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointA: {x: -2, y: 0, z: 0}
   pointB: {x: 2, y: 0, z: 0}
-  movingSpeed: 0
+  movingSpeed: 1
   playersTransform: {fileID: 0}
   playerLinked: 0
