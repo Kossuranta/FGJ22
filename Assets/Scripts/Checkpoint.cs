@@ -5,7 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     [SerializeField]
-    Collider2D collider2D = null;
+    new Collider2D collider2D = null;
 
     [SerializeField]
     Transform respawnPosition = null;

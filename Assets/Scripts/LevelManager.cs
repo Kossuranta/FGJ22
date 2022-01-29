@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField]
     Checkpoint[] checkpoints = null;
+
+    [SerializeField]
+    LevelEnd levelEnd = null;
     
     Vector2 levelStartPos = Vector2.zero;
 
@@ -17,12 +20,14 @@ public class LevelManager : MonoBehaviour
         if (player == null) Debug.LogError("player is null!", this);
         else levelStartPos = player.position;
         if (checkpoints == null || checkpoints.Length == 0) Debug.LogError($"checkpoints array is empty!", this);
+        if (levelEnd == null) Debug.LogError("levelEnd is null!", this);
 
         Instance = this; //Stupid but fast stuff
     }
 
     public void Start()
     {
+        levelEnd.Setup(this);
         foreach (Checkpoint checkpoint in checkpoints)
         {
             checkpoint.Setup(this);
@@ -58,4 +63,6 @@ public class LevelManager : MonoBehaviour
                 return;
         }
     }
+
+    public Transform Player { get { return player; } }
 }
