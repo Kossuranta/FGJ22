@@ -1,17 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneOpening : MonoBehaviour
 {
-    private bool onDoor = false;
+    [SerializeField]
+    GameObject textCanvas = null;
+    
+    bool onDoor = false;
+
+    void Awake()
+    {
+        textCanvas.SetActive(false);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             Debug.Log("it IS a door");
             onDoor = true;
+            textCanvas.SetActive(true);
         }
     }
     void OnTriggerExit2D(Collider2D other)
@@ -20,6 +29,7 @@ public class SceneOpening : MonoBehaviour
         {
             Debug.Log("it WAS a door");
             onDoor = false;
+            textCanvas.SetActive(false);
         }
     }
     void Update()
