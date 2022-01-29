@@ -109,6 +109,7 @@ public class LevelEnd : MonoBehaviour
     {
         LevelCompleted();
         col.gameObject.GetComponent<TarodevController.PlayerController>().DisableInput();
+        col.gameObject.GetComponent<PlayerAnimationController>().playerHasHandsUp(true);
     }
 
     void LevelCompleted()

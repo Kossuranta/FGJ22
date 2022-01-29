@@ -71,7 +71,6 @@ public class PlayerAnimationController : MonoBehaviour {
             isFlyingDown = state;
             _playerAnimator.SetBool("InAirDown", state);
         }
-        
     }
 
     public void playerDies() {
@@ -88,5 +87,9 @@ public class PlayerAnimationController : MonoBehaviour {
             _playerAnimator.ResetTrigger("Death");
             isDead = false;
         }
+    }
+
+    public void playerHasHandsUp (bool state) {
+        _playerAnimator.SetBool("HandsUp", state);
     }
 }
