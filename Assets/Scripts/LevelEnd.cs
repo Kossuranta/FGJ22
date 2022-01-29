@@ -108,6 +108,7 @@ public class LevelEnd : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         LevelCompleted();
+        col.gameObject.GetComponent<TarodevController.PlayerController>().DisableInput();
     }
 
     void LevelCompleted()

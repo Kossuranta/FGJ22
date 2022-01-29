@@ -7695,7 +7695,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 527307167249504321, guid: f368788f8475ea642948f3642bc5ea28, type: 3}
       propertyPath: _airTimeNeededForDeath
-      value: 1.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 527307167249504321, guid: f368788f8475ea642948f3642bc5ea28, type: 3}
       propertyPath: _characterBounds.m_Extent.x

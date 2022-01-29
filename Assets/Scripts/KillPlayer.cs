@@ -5,11 +5,13 @@ public class KillPlayer : MonoBehaviour
 {
     [SerializeField] float deathDelay = 3f;
     [SerializeField] private PlayerAnimationController _animatorController;
+    private TarodevController.PlayerController _playerController;
 
     private float timer = 0;
 
     void Awake()
     {
+        _playerController = gameObject.GetComponent<TarodevController.PlayerController>();
         enabled = false;
     }
 
@@ -21,6 +23,7 @@ public class KillPlayer : MonoBehaviour
         _animatorController.playerDies();
         timer = 0;
         enabled = true;
+        _playerController.DisableInput();
     }
 
     void Update()

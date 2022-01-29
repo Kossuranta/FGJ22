@@ -56,13 +56,36 @@ namespace TarodevController {
 
         #region Gather Input
 
+        private bool inputIsDisabled = false; 
+
+        public void DisableInput() {
+            inputIsDisabled = true;
+        }
+
+        public void EnableInput() {
+            inputIsDisabled = false;
+        }
+
         private void GatherInput() {
-            Input = new FrameInput {
+            if(!inputIsDisabled) {
+                Input = new FrameInput {
                 JumpDown = UnityEngine.Input.GetButtonDown("Jump"),
                 JumpUp = UnityEngine.Input.GetButtonUp("Jump"),
                 StartRolling = UnityEngine.Input.GetButtonDown("StartRolling"),
                 X = UnityEngine.Input.GetAxisRaw("Horizontal")
-            };
+                };
+            }
+            //when input is disabled
+            else { 
+                Input = new FrameInput {
+                JumpDown = false,
+                JumpUp = false,
+                StartRolling = false,
+                X = 0f
+                };
+            }
+            
+
             if (Input.JumpDown) {
                 _lastJumpPressed = Time.time;
             }
