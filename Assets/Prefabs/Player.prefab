@@ -61,14 +61,14 @@ MonoBehaviour:
   _rayBuffer: 0.1
   _airTimeNeededForDeath: 2
   _acceleration: 90
-  _moveClamp: 8
+  _moveClamp: 10
   _deAcceleration: 60
   _apexBonus: 2
   _accelerationRolling: 10
   _moveClampRolling: 20
   _deAccelerationRolling: 20
   _apexBonusRolling: 2
-  _speedWhenRollingStops: 5
+  _speedWhenRollingStops: 8
   sidewaysSpeedNeededForDeath: 20
   _fallClamp: -40
   _minFallSpeed: 80
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 5231728041007219229}
+  playersSpriteRenderer: {fileID: 8516544399334090514}
 --- !u!50 &7884765289201527808
 Rigidbody2D:
   serializedVersion: 4
