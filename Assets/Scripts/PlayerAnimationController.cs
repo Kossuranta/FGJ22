@@ -52,7 +52,16 @@ public class PlayerAnimationController : MonoBehaviour {
     public void playerDies() {
         if (!isDead) {
             _playerAnimator.SetTrigger("Death");
+            _playerAnimator.ResetTrigger("Respawn");
             isDead = true;
+        }
+    }
+
+    public void playerRespawns() {
+        if (isDead) {
+            _playerAnimator.SetTrigger("Respawn");
+            _playerAnimator.ResetTrigger("Death");
+            isDead = false;
         }
     }
 }
