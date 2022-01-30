@@ -123,6 +123,7 @@ public class PlayerAnimationController : MonoBehaviour
 
     public void PlayerRespawns()
     {
+        Debug.Log("PlayerRespawn");
         if (isDead)
         {
             playerAnimator.SetTrigger(RESPAWN);

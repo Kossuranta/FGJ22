@@ -144,6 +144,11 @@ namespace TarodevController
 
         float timeLeftGrounded;
 
+        public void PlayerRespawned()
+        {
+            airTime = 0f;
+        }
+
         // We use these raycast checks for pre-collision information
         void RunCollisionChecks()
         {

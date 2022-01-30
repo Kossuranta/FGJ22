@@ -1,3 +1,5 @@
+using System;
+using TarodevController;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -34,11 +36,26 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (player.localPosition.y < -60f)
+        {
+            KillPlayer killPlayer = player.GetComponentInChildren<KillPlayer>();
+            
+            if (killPlayer != null)
+                killPlayer.PlayerDies();
+            else
+                Debug.LogError("KillPlayer script not found!");
+        }
+    }
+
     public void RespawnPlayer()
     {
         Vector3 respawnPos = GetRespawnPosition();
         player.position = respawnPos;
-        player.gameObject.GetComponent<TarodevController.PlayerController>().EnableInput();
+        PlayerController playerController = player.gameObject.GetComponent<TarodevController.PlayerController>();
+        playerController.EnableInput();
+        playerController.PlayerRespawned();
         player.gameObject.GetComponent<PlayerAnimationController>().PlayerRespawns();
     }
 

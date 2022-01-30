@@ -47,7 +47,8 @@ public class CameraRunner : MonoBehaviour
             transform.localPosition = blenderAnimationPosition;
             return;
         }
-        else if (cameraOffset.x != 0)
+        
+        if (cameraOffset.x != 0)
         {
             if (player.Input.X < -0.1f && player.Velocity.x < -0.1f)
             {
@@ -68,6 +69,7 @@ public class CameraRunner : MonoBehaviour
         Vector3 destination = cameraPos + delta;
         cameraPos = Vector3.SmoothDamp(cameraPos, destination, ref velocity, dampTime);
 
+        cameraPos.y = Mathf.Clamp(cameraPos.y, -50f, float.PositiveInfinity);
         transform.localPosition = cameraPos;
     }
 
