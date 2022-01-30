@@ -1,6 +1,7 @@
 using System;
 using TarodevController;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Blender : MonoBehaviour
 {
@@ -202,9 +203,21 @@ public class Blender : MonoBehaviour
                 player.EnableInput();
                 CurrentState = State.Idle;
                 SetAnimatorTrigger(AnimationTrigger.Idle);
+                
+                if(GameManager.Instance.EnabledColors.HasFlag(ColorEnum.Green) &&
+                GameManager.Instance.EnabledColors.HasFlag(ColorEnum.Orange) &&
+                GameManager.Instance.EnabledColors.HasFlag(ColorEnum.Purple))
+                {
+                    Invoke(nameof(EndGame), 2f); 
+                }
+
                 break;
             }
         }
+    }
+
+    private void EndGame() {
+        SceneManager.LoadScene("EndGameScene");
     }
 
     public void SetAnimatorTrigger(AnimationTrigger trigger)
