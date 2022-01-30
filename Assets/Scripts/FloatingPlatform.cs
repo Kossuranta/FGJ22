@@ -10,8 +10,8 @@ public class FloatingPlatform : MonoBehaviour
 
     [SerializeField][Range(0,5)] private float movingSpeed = 0;
     private float t;
-    public Transform playersTransform;
-    public bool playerLinked=false;
+    private Transform playersTransform;
+    private bool playerLinked=false;
     private Vector3 lastPos;
 
     public void LinkToPlayer(GameObject player) {
