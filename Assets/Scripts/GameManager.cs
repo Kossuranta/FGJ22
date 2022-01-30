@@ -47,10 +47,7 @@ public class GameManager : MonoBehaviour
         foreach (GameObject levelEndBase in levelEndBases)
         {   
             ColorEnum flagColor = levelEndBase.GetComponent<LevelEnd>().GetCaptureTargetColor();
-            Debug.Log("Verrataan " + flagColor);
             if(enabledColors.HasFlag(flagColor)) {
-                //never gets here for some reason
-                Debug.Log("disabloidaan " + flagColor);
                 levelEndBase.SetActive(false);
             }
         }
