@@ -40,7 +40,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240509014}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1083882044, guid: 73f7860b9455c9a409d2d6c13b632fd7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -909799082, guid: 73f7860b9455c9a409d2d6c13b632fd7, type: 3}
+  m_Color: {r: 0.104130395, g: 0.49056602, b: 0.071733706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -257,6 +257,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96325d9d888fe24e8141e2318b4d487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorPairs:
+  - colorEnum: 4
+    color: {r: 0.24313727, g: 0.61960787, b: 0.3137255, a: 1}
+  - colorEnum: 8
+    color: {r: 0.40000004, g: 0.28235295, b: 0.6666667, a: 1}
+  - colorEnum: 16
+    color: {r: 0.9921569, g: 0.54509807, b: 0.13725491, a: 1}
   blenderAnimator: {fileID: 5690285491610506873}
   smoothieAnimator: {fileID: 240509016}
   moveToBlenderDuration: 2

@@ -37,7 +37,7 @@ public class SceneOpening : MonoBehaviour
         if(onDoor && Input.GetButton("Interact"))
         {
             Debug.Log("e pressed");
-            SceneManager.LoadScene("Level_01");
+            GameManager.Instance.EnterLevel(Levels.Level_01);
             onDoor = false;
         }
     }
