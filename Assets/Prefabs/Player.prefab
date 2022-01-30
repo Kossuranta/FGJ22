@@ -91,7 +91,7 @@ MonoBehaviour:
   detectorCount: 3
   detectionRayLength: 0.1
   rayBuffer: 0.1
-  airTimeNeededForDeath: 1.5
+  airTimeNeededForDeath: 2
   acceleration: 90
   moveClamp: 10
   deAcceleration: 60
@@ -101,7 +101,7 @@ MonoBehaviour:
   deAccelerationRolling: 20
   apexBonusRolling: 2
   speedWhenRollingStops: 8
-  sidewaysSpeedNeededForDeath: 20
+  sidewaysSpeedNeededForDeath: 100
   fallClamp: -40
   minFallSpeed: 80
   maxFallSpeed: 120
