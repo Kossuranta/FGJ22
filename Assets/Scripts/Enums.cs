@@ -9,6 +9,7 @@ public enum ColorEnum
     Purple = 1 << 3,
     Orange = 1 << 4,
 }
+
 public enum Levels
 {
     Hub = 0,

@@ -61,10 +61,12 @@ public class GameManager : MonoBehaviour
         switch(level)
         {
             case Levels.Hub:
+                CurrentLevel = Levels.Hub;
                 SceneManager.LoadScene("Hub");
                 break;
             
             case Levels.Level_01:
+                CurrentLevel = Levels.Level_01;
                 SceneManager.LoadScene("Level_01");
                 break;
         }
@@ -118,5 +120,6 @@ public class GameManager : MonoBehaviour
     }
 
     public ColorEnum EnabledColors { get { return enabledColors; } }
+    public Levels CurrentLevel { get; private set; }
 }
 

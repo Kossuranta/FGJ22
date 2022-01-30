@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,13 +29,16 @@ public class ColorManager : MonoBehaviour
     public void Setup(GameManager gameManager)
     {
         this.gameManager = gameManager;
+    }
 
+    void Start()
+    {
         UpdateEnabledColorMasks();
     }
 
     void UpdateEnabledColorMasks()
     {
-        foreach (KeyValuePair<ColorEnum,List<SpriteFader>> kvp in spriteFadersDictionary)
+        foreach (KeyValuePair<ColorEnum, List<SpriteFader>> kvp in spriteFadersDictionary)
         {
             if (gameManager.EnabledColors.HasFlag(kvp.Key))
             {
