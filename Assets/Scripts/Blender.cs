@@ -1,10 +1,11 @@
 using System;
 using TarodevController;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Blender : MonoBehaviour
 {
+    public static Blender Instance = null;
+    
     [Serializable]
     public class KidnapTargetColorPair
     {
@@ -12,7 +13,7 @@ public class Blender : MonoBehaviour
         public ColorEnum color;
     }
     
-    enum State
+    public enum State
     {
         Idle,
         MoveToBlender,
@@ -71,9 +72,12 @@ public class Blender : MonoBehaviour
     float timer = 0;
     Transform playerCarryPosition = null;
     Transform kidnapTarget = null;
+    PlayerAnimationController playerAnimator = null;
 
     void Awake()
     {
+        Instance = this;
+        
         player = FindObjectOfType<PlayerController>();
         if (player == null) Debug.LogError("player is null!", this);
         
@@ -89,6 +93,10 @@ public class Blender : MonoBehaviour
         {
             CurrentState = State.MoveToBlender;
             player.DisableInput();
+
+            playerAnimator = player.GetComponentInChildren<PlayerAnimationController>();
+            playerAnimator.PlayerHasHandsUp();
+            playerAnimator.SetSpriteFlipX(true);
             
             Vector3 playerPos = player.transform.localPosition;
             playerPos.x = playerStartPosX;
@@ -135,6 +143,7 @@ public class Blender : MonoBehaviour
                     
                     SetAnimatorTrigger(AnimationTrigger.AddIngredient);
                     CurrentState = State.AddIngredient;
+                    
                 }
                 break;
             }
@@ -188,6 +197,7 @@ public class Blender : MonoBehaviour
             
             case AnimationTrigger.AddIngredient:
                 blenderAnimator.SetTrigger(ADD_INGREDIENT);
+                playerAnimator.PlayerIdle();
                 break;
             
             case AnimationTrigger.Blend:
@@ -198,13 +208,13 @@ public class Blender : MonoBehaviour
         }
     }
     
-    State CurrentState
+    public State CurrentState
     {
         get
         {
             return currentState;
         }
-        set
+        private set
         {
             Debug.Log($"Blender state: {value}");
             currentState = value;

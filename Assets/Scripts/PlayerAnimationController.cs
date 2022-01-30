@@ -19,6 +19,7 @@ public class PlayerAnimationController : MonoBehaviour
     static readonly int DEATH = Animator.StringToHash("Death");
     static readonly int RESPAWN = Animator.StringToHash("Respawn");
     static readonly int HANDS_UP = Animator.StringToHash("HandsUp");
+    static readonly int IDLE = Animator.StringToHash("Idle");
 
     bool isMoving = false, isRolling = false, isDead = false, isFlipped = false;
 
@@ -133,5 +134,10 @@ public class PlayerAnimationController : MonoBehaviour
     public void PlayerHasHandsUp()
     {
         playerAnimator.SetTrigger(HANDS_UP);
+    }
+
+    public void PlayerIdle()
+    {
+        playerAnimator.SetTrigger(IDLE);
     }
 }
