@@ -77,6 +77,19 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
+    public void Deactivate()
+    {
+        IsActive = false;
+        enabled = false;
+        timer = 0;
+        
+        if (collider2D != null)
+            collider2D.enabled = true;
+
+        if (flag != null)
+            flag.rotation = flagStartRot;
+    }
+
     public Vector3 GetRespawnPosition()
     {
         if (respawnPosition == null)

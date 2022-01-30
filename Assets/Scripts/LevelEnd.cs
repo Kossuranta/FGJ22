@@ -40,6 +40,17 @@ public class LevelEnd : MonoBehaviour
     
     CameraRunner cameraRunner = null;
 
+    LevelManager LevelManager
+    {
+        get
+        {
+            if (levelManager == null)
+                levelManager = FindObjectOfType<LevelManager>();
+            
+            return levelManager;
+        }
+    }
+
     void Awake()
     {
         if (collider2D == null) Debug.LogError("collider2D is null!", this);
@@ -79,9 +90,9 @@ public class LevelEnd : MonoBehaviour
             {
                 timer += Time.deltaTime / carryAwayDuration;
 
-                Vector2 pos = levelManager.Player.position;
+                Vector2 pos = LevelManager.Player.position;
                 pos.x = Mathf.Lerp(playerEndTriggerPosX, playerEndTriggerPosX - 50f, timer);
-                levelManager.Player.position = pos;
+                LevelManager.Player.position = pos;
 
                 if (timer >= 1)
                 {
@@ -104,11 +115,6 @@ public class LevelEnd : MonoBehaviour
         }
     }
 
-    public void Setup(LevelManager levelManager)
-    {
-        this.levelManager = levelManager;
-    }
-
     public ColorEnum GetCaptureTargetColor()
     {
         return colorToBeUnlocked;
@@ -126,7 +132,7 @@ public class LevelEnd : MonoBehaviour
         collider2D.enabled = false;
         enabled = true;
         cameraRunner.ToggleFollow(false);
-        playerEndTriggerPosX = levelManager.Player.position.x;
+        playerEndTriggerPosX = LevelManager.Player.position.x;
 
         kidnapTarget.SetParent(playerCarryPosition, true);
     }

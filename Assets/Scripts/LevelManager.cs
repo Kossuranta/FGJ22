@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using TarodevController;
 using UnityEngine;
 
@@ -9,27 +10,24 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     Transform player = null;
 
-    [SerializeField]
+    Vector2 levelStartPos = Vector2.zero;
     Checkpoint[] checkpoints = null;
 
-    [SerializeField]
-    LevelEnd levelEnd = null;
-    
-    Vector2 levelStartPos = Vector2.zero;
+    Checkpoint lastCheckPoint = null;
 
     void Awake()
     {
         if (player == null) Debug.LogError("player is null!", this);
         else levelStartPos = player.position;
+
+        checkpoints = FindObjectsOfType<Checkpoint>();
         if (checkpoints == null || checkpoints.Length == 0) Debug.LogError($"checkpoints array is empty!", this);
-        if (levelEnd == null) Debug.LogError("levelEnd is null!", this);
 
         Instance = this; //Stupid but fast stuff
     }
 
     public void Start()
     {
-        levelEnd.Setup(this);
         foreach (Checkpoint checkpoint in checkpoints)
         {
             checkpoint.Setup(this);
@@ -61,13 +59,8 @@ public class LevelManager : MonoBehaviour
 
     Vector3 GetRespawnPosition()
     {
-        for (int i = checkpoints.Length - 1; i >= 0; i--)
-        {
-            Checkpoint checkpoint = checkpoints[i];
-
-            if (checkpoint != null && checkpoint.IsActive)
-                return checkpoint.GetRespawnPosition();
-        }
+        if (lastCheckPoint != null && lastCheckPoint.IsActive)
+            return lastCheckPoint.GetRespawnPosition();
 
         return levelStartPos;
     }
@@ -76,12 +69,20 @@ public class LevelManager : MonoBehaviour
     {
         foreach (Checkpoint checkpoint in checkpoints)
         {
-            checkpoint.Activate();
-            
-            if (checkpoint == activatedCheckpoint)
-                return;
+            if (checkpoint != activatedCheckpoint)
+                checkpoint.Deactivate();
         }
+        
+        lastCheckPoint = activatedCheckpoint;
     }
 
-    public Transform Player { get { return player; } }
+    public Transform Player
+    {
+        get
+        {
+            if (player == null)
+                player = FindObjectOfType<PlayerController>().transform;
+            return player;
+        }
+    }
 }
