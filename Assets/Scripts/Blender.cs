@@ -12,6 +12,13 @@ public class Blender : MonoBehaviour
         public Transform kidnapTarget;
         public ColorEnum color;
     }
+
+    [Serializable]
+    public class ColorEnumColor
+    {
+        public ColorEnum colorEnum;
+        public Color color;
+    }
     
     public enum State
     {
@@ -31,6 +38,9 @@ public class Blender : MonoBehaviour
         Fill,
         Clear,
     }
+
+    [SerializeField]
+    ColorEnumColor[] colorPairs = null;
 
     [SerializeField]
     Animator blenderAnimator = null;
@@ -108,6 +118,16 @@ public class Blender : MonoBehaviour
                 if (pair.color == colorToBeUnlocked)
                     kidnapTargetPrefab = pair.kidnapTarget;
             }
+            
+            Color smoothieColor = Color.white;
+            foreach (ColorEnumColor colorPair in colorPairs)
+            {
+                if (colorPair.colorEnum == colorToBeUnlocked)
+                    smoothieColor = colorPair.color;
+            }
+
+            SpriteRenderer smoothieSpriteRenderer = smoothieAnimator.GetComponent<SpriteRenderer>();
+            smoothieSpriteRenderer.color = smoothieColor;
             
             if (kidnapTargetPrefab != null)
             {

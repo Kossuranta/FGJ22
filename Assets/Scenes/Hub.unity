@@ -12308,6 +12308,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 240509017, guid: 95e281004574eea48b19993369b9a1e5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1083882044, guid: 73f7860b9455c9a409d2d6c13b632fd7, type: 3}
+    - target: {fileID: 240509017, guid: 95e281004574eea48b19993369b9a1e5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5690285491610506871, guid: 95e281004574eea48b19993369b9a1e5, type: 3}
       propertyPath: m_RootOrder
       value: 19
