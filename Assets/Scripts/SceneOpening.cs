@@ -16,6 +16,8 @@ public class SceneOpening : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (Blender.Instance.CurrentState != Blender.State.Idle) return;
+        
         if (other.CompareTag("Player"))
         {
             Debug.Log("it IS a door");
