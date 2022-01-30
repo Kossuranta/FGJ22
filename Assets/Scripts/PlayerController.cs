@@ -88,7 +88,7 @@ namespace TarodevController
                 {
                     JumpDown = UnityEngine.Input.GetButtonDown("Jump"),
                     JumpUp = UnityEngine.Input.GetButtonUp("Jump"),
-                    StartRolling = UnityEngine.Input.GetButtonDown("StartRolling"),
+                    StartRolling = UnityEngine.Input.GetButtonDown("StartRolling") || UnityEngine.Input.GetKeyDown(KeyCode.LeftShift),
                     X = UnityEngine.Input.GetAxisRaw("Horizontal")
                 };
             }
