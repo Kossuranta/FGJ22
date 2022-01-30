@@ -277,7 +277,7 @@ MonoBehaviour:
     color: 4
   - kidnapTarget: {fileID: 794284114758986287, guid: 091a500dc1ccbd6468f6aaa809618a72, type: 3}
     color: 8
-  - kidnapTarget: {fileID: 794284114758986287, guid: 2f17f55564d05854c97b89bce5943238, type: 3}
+  - kidnapTarget: {fileID: 794284114758986287, guid: 62ce930e4c97ece4dbdcc6e5c8d5edd2, type: 3}
     color: 16
 --- !u!1 &7123302534211509106
 GameObject:
