@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Blender : MonoBehaviour
 {
+    public AudioSource scream;  
     public static Blender Instance = null;
     
     [Serializable]
@@ -237,7 +238,9 @@ public class Blender : MonoBehaviour
                 blenderAnimator.SetTrigger(BLEND);
                 smoothieAnimator.SetTrigger(FILL_START);
                 CurrentState = State.Blend;
+                scream.Play();
                 break;
+
         }
     }
     
