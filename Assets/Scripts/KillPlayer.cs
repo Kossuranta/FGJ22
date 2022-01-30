@@ -20,7 +20,7 @@ public class KillPlayer : MonoBehaviour
         if (enabled) return; //Already dead
         
         Debug.Log("Player dies :)");
-        _animatorController.playerDies();
+        _animatorController.PlayerDies();
         timer = 0;
         enabled = true;
         _playerController.DisableInput();

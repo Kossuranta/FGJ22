@@ -42,7 +42,7 @@ public class CameraRunner : MonoBehaviour
         if (player == null) return;
         if (camera == null) return;
 
-        if (GameManager.Instance.ColorToBeUnlocked != ColorEnum.None) //During blender animation
+        if (Blender.Instance != null && Blender.Instance.CurrentState != Blender.State.Idle) //During blender animation
         {
             transform.localPosition = blenderAnimationPosition;
             return;

@@ -81,36 +81,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29d22fe6e2d2994795d9b8adc2b858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animatorController: {fileID: 5598450476517506062}
-  _characterBounds:
+  animatorController: {fileID: 5598450476517506062}
+  characterBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 1.5, y: 1.45, z: 0}
-  _groundLayer:
+  groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _detectorCount: 3
-  _detectionRayLength: 0.1
-  _rayBuffer: 0.1
-  _airTimeNeededForDeath: 1.5
-  _acceleration: 90
-  _moveClamp: 10
-  _deAcceleration: 60
-  _apexBonus: 2
-  _accelerationRolling: 10
-  _moveClampRolling: 20
-  _deAccelerationRolling: 20
-  _apexBonusRolling: 2
-  _speedWhenRollingStops: 8
+  detectorCount: 3
+  detectionRayLength: 0.1
+  rayBuffer: 0.1
+  airTimeNeededForDeath: 1.5
+  acceleration: 90
+  moveClamp: 10
+  deAcceleration: 60
+  apexBonus: 2
+  accelerationRolling: 10
+  moveClampRolling: 20
+  deAccelerationRolling: 20
+  apexBonusRolling: 2
+  speedWhenRollingStops: 8
   sidewaysSpeedNeededForDeath: 20
-  _fallClamp: -40
-  _minFallSpeed: 80
-  _maxFallSpeed: 120
-  _jumpHeight: 30
-  _jumpApexThreshold: 10
-  _coyoteTimeThreshold: 0.1
-  _jumpBuffer: 0.1
-  _jumpEndEarlyGravityModifier: 3
-  _freeColliderIterations: 10
+  fallClamp: -40
+  minFallSpeed: 80
+  maxFallSpeed: 120
+  jumpHeight: 30
+  jumpApexThreshold: 10
+  coyoteTimeThreshold: 0.1
+  jumpBuffer: 0.1
+  jumpEndEarlyGravityModifier: 3
+  freeColliderIterations: 10
 --- !u!61 &2679971372446784159
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c627ebfda5a254fa970bd61ae9f137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 5231728041007219229}
+  playerAnimator: {fileID: 5231728041007219229}
   playersArtsSpriteRenderer: {fileID: 8516544399334090514}
   playersArtsTransform: {fileID: 823992287965058657}
 --- !u!50 &7884765289201527808
@@ -260,7 +260,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1118714520, guid: 96d2a2d0c37fcae46a499ad2c988a6cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
