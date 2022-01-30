@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
                 CurrentLevel = Levels.Level_01;
                 SceneManager.LoadScene("Level_01");
                 break;
+
         }
     }
 

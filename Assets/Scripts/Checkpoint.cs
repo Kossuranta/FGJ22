@@ -13,6 +13,9 @@ public class Checkpoint : MonoBehaviour
     [SerializeField]
     Transform flag = null;
 
+    [SerializeField]
+    CanvasGroup textCanvasGroup = null;
+
     LevelManager levelManager = null;
     Quaternion flagStartRot = Quaternion.identity;
     Quaternion flagTargetRot = Quaternion.identity;
@@ -34,6 +37,8 @@ public class Checkpoint : MonoBehaviour
             flagTargetRot = Quaternion.identity;
             flag.transform.rotation = flagStartRot;
         }
+
+        textCanvasGroup.alpha = 0;
         
         enabled = false;
     }
@@ -42,8 +47,16 @@ public class Checkpoint : MonoBehaviour
     {
         timer += Time.deltaTime;
         flag.transform.rotation = Quaternion.Lerp(flagStartRot, flagTargetRot, timer);
+        
+        textCanvasGroup.alpha = timer;
+        Invoke(nameof(HideCheckpointText), 2f);
 
         if (timer >= 1f) enabled = false;
+    }
+
+    void HideCheckpointText()
+    {
+        textCanvasGroup.alpha = 0;
     }
 
     public void Setup(LevelManager levelManager)

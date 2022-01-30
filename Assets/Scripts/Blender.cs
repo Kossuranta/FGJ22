@@ -1,6 +1,7 @@
 using System;
 using TarodevController;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Blender : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class Blender : MonoBehaviour
     {
         public Transform kidnapTarget;
         public ColorEnum color;
+    }
+
+    [Serializable]
+    public class ColorEnumColor
+    {
+        public ColorEnum colorEnum;
+        public Color color;
     }
     
     public enum State
@@ -31,6 +39,9 @@ public class Blender : MonoBehaviour
         Fill,
         Clear,
     }
+
+    [SerializeField]
+    ColorEnumColor[] colorPairs = null;
 
     [SerializeField]
     Animator blenderAnimator = null;
@@ -109,6 +120,16 @@ public class Blender : MonoBehaviour
                     kidnapTargetPrefab = pair.kidnapTarget;
             }
             
+            Color smoothieColor = Color.white;
+            foreach (ColorEnumColor colorPair in colorPairs)
+            {
+                if (colorPair.colorEnum == colorToBeUnlocked)
+                    smoothieColor = colorPair.color;
+            }
+
+            SpriteRenderer smoothieSpriteRenderer = smoothieAnimator.GetComponent<SpriteRenderer>();
+            smoothieSpriteRenderer.color = smoothieColor;
+            
             if (kidnapTargetPrefab != null)
             {
                 kidnapTarget = Instantiate(kidnapTargetPrefab, playerCarryPosition, true);
@@ -182,9 +203,21 @@ public class Blender : MonoBehaviour
                 player.EnableInput();
                 CurrentState = State.Idle;
                 SetAnimatorTrigger(AnimationTrigger.Idle);
+                
+                if(GameManager.Instance.EnabledColors.HasFlag(ColorEnum.Green) &&
+                GameManager.Instance.EnabledColors.HasFlag(ColorEnum.Orange) &&
+                GameManager.Instance.EnabledColors.HasFlag(ColorEnum.Purple))
+                {
+                    Invoke(nameof(EndGame), 0.7f); 
+                }
+
                 break;
             }
         }
+    }
+
+    private void EndGame() {
+        SceneManager.LoadScene("EndGameScene");
     }
 
     public void SetAnimatorTrigger(AnimationTrigger trigger)
