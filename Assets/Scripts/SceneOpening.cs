@@ -20,7 +20,6 @@ public class SceneOpening : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            Debug.Log("it IS a door");
             onDoor = true;
             textCanvas.SetActive(true);
         }
@@ -29,7 +28,6 @@ public class SceneOpening : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("it WAS a door");
             onDoor = false;
             textCanvas.SetActive(false);
         }
@@ -40,7 +38,6 @@ public class SceneOpening : MonoBehaviour
         {
             Debug.Log("e pressed");
             SceneManager.LoadScene("Level_01");
-            // GameManager.Instance.EnterLevel(Levels.Level_01);
             onDoor = false;
         }
     }
