@@ -149,6 +149,7 @@ public class Blender : MonoBehaviour
                 {
                     timer = 0;
                     CurrentState = State.AddColors;
+                    GameManager.Instance.OnBlenderCompleted();
                     Destroy(kidnapTarget.gameObject);
                 }
                 break;
