@@ -7,6 +7,7 @@ TagManager:
   - Door_01
   - PlayerCarryPosition
   - MovingPlatform
+  - CollectedVegetables
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9066117261904922637}
   m_Layer: 0
   m_Name: LevelEndBase
-  m_TagString: Untagged
+  m_TagString: LevelEndBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

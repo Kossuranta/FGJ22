@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,8 +35,27 @@ public class GameManager : MonoBehaviour
         colorManager = FindObjectOfType<ColorManager>();
         if (colorManager != null)
             colorManager.Setup(this);
+
+        if (scene.name.Equals("Level_01"))
+            DisableCollectedVegetables();
     }
     
+    void DisableCollectedVegetables() 
+    {
+        GameObject[] levelEndBases = GameObject.FindGameObjectsWithTag("LevelEndBase");
+
+        foreach (GameObject levelEndBase in levelEndBases)
+        {   
+            ColorEnum flagColor = levelEndBase.GetComponent<LevelEnd>().GetCaptureTargetColor();
+            Debug.Log("Verrataan " + flagColor);
+            if(enabledColors.HasFlag(flagColor)) {
+                //never gets here for some reason
+                Debug.Log("disabloidaan " + flagColor);
+                levelEndBase.SetActive(false);
+            }
+        }
+    }
+
     public void EnterLevel(Levels level)
     {
         switch(level)

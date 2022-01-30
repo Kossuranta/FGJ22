@@ -109,6 +109,11 @@ public class LevelEnd : MonoBehaviour
         this.levelManager = levelManager;
     }
 
+    public ColorEnum GetCaptureTargetColor()
+    {
+        return colorToBeUnlocked;
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         LevelCompleted();
