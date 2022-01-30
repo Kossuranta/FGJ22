@@ -622,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1079967829828118188, guid: fc47be2a4bc1429478f4cbe2bed5b284, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1079967829828118188, guid: fc47be2a4bc1429478f4cbe2bed5b284, type: 3}
       propertyPath: m_LocalScale.x
@@ -4000,7 +4000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8520002017339399404, guid: 7a87767aca74b2747b1066472ccc9674, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8520002017339399404, guid: 7a87767aca74b2747b1066472ccc9674, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4190,6 +4190,10 @@ PrefabInstance:
     - target: {fileID: 4755276299598969920, guid: ca04fe882fe7f6f41b10b62ba334809c, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6282172989619313598, guid: ca04fe882fe7f6f41b10b62ba334809c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8417202677535453973, guid: ca04fe882fe7f6f41b10b62ba334809c, type: 3}
       propertyPath: m_RootOrder
@@ -9141,7 +9145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2442068259632597900, guid: 32ed839602066b14b9d9949a52f77f95, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2442068259632597900, guid: 32ed839602066b14b9d9949a52f77f95, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9784,6 +9788,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 178167724}
     m_Modifications:
+    - target: {fileID: 1711413542766257020, guid: 93c1d48a1fa5f7549ad3cee20a03d144, type: 3}
+      propertyPath: m_SortingOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 7364315177526858362, guid: 93c1d48a1fa5f7549ad3cee20a03d144, type: 3}
       propertyPath: m_Name
       value: Red_tree-01 (14)
@@ -10560,134 +10568,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6037717183880615719, guid: 2d349830875b3ef43845a5e1ac4782d6, type: 3}
   m_PrefabInstance: {fileID: 2045787339}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2053007709
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 4755276299598969920, guid: ca04fe882fe7f6f41b10b62ba334809c, type: 3}
-  m_PrefabInstance: {fileID: 834299375}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2053007711}
-  - component: {fileID: 2053007710}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &2053007710
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 7954072374390631102, guid: ca04fe882fe7f6f41b10b62ba334809c, type: 3}
-  m_PrefabInstance: {fileID: 834299375}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053007709}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6e486adeee2693e41b5877e2eacd99ef, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &2053007711
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 8417202677535453973, guid: ca04fe882fe7f6f41b10b62ba334809c, type: 3}
-  m_PrefabInstance: {fileID: 834299375}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053007709}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2057847816
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11202,7 +11082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7364315177526858364, guid: 93c1d48a1fa5f7549ad3cee20a03d144, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7364315177526858364, guid: 93c1d48a1fa5f7549ad3cee20a03d144, type: 3}
       propertyPath: m_LocalPosition.x
