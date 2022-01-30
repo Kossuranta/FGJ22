@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
         Vector3 respawnPos = GetRespawnPosition();
         player.position = respawnPos;
         player.gameObject.GetComponent<TarodevController.PlayerController>().EnableInput();
-        player.gameObject.GetComponent<PlayerAnimationController>().playerRespawns();
+        player.gameObject.GetComponent<PlayerAnimationController>().PlayerRespawns();
     }
 
     Vector3 GetRespawnPosition()

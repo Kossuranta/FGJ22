@@ -60,16 +60,17 @@ public class Blender : MonoBehaviour
     
     [SerializeField]
     KidnapTargetColorPair[] kidnapTargetColorPairs = null;
+    
+    static readonly int IDLE = Animator.StringToHash("Idle");
+    static readonly int ADD_INGREDIENT = Animator.StringToHash("AddIngredient");
+    static readonly int BLEND = Animator.StringToHash("Blend");
+    static readonly int FILL_START = Animator.StringToHash("FillStart");
 
     PlayerController player = null;
     State currentState = State.Idle;
     float timer = 0;
     Transform playerCarryPosition = null;
     Transform kidnapTarget = null;
-    static readonly int IDLE = Animator.StringToHash("Idle");
-    static readonly int ADD_INGREDIENT = Animator.StringToHash("AddIngredient");
-    static readonly int BLEND = Animator.StringToHash("Blend");
-    static readonly int FILL_START = Animator.StringToHash("FillStart");
 
     void Awake()
     {
@@ -168,10 +169,12 @@ public class Blender : MonoBehaviour
             }
             
             case State.End:
+            {
                 player.EnableInput();
                 CurrentState = State.Idle;
                 SetAnimatorTrigger(AnimationTrigger.Idle);
                 break;
+            }
         }
     }
 

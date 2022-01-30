@@ -1,95 +1,137 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class PlayerAnimationController : MonoBehaviour {
-    [SerializeField] private Animator _playerAnimator;
-    [SerializeField] private SpriteRenderer playersArtsSpriteRenderer;
-    [SerializeField] private Transform playersArtsTransform;
-    private bool isMoving=false, isRolling=false, isDead=false, isFlipped=false;
+public class PlayerAnimationController : MonoBehaviour
+{
+    [SerializeField, FormerlySerializedAs("_playerAnimator")]
+    Animator playerAnimator;
 
-    public void setSpriteFlipX(bool Flip) {
-        if (Flip!=isFlipped) {
-            if(Flip) {
-                playersArtsSpriteRenderer.flipX=true;
-                isFlipped=true;
-            } 
-            else {
-                playersArtsSpriteRenderer.flipX=false;
-                isFlipped=false;
+    [SerializeField]
+    SpriteRenderer playersArtsSpriteRenderer;
+
+    [SerializeField]
+    Transform playersArtsTransform;
+    
+    static readonly int MOVING = Animator.StringToHash("Moving");
+    static readonly int ROLLING = Animator.StringToHash("Rolling");
+    static readonly int IN_AIR_UP = Animator.StringToHash("InAirUp");
+    static readonly int IN_AIR_DOWN = Animator.StringToHash("InAirDown");
+    static readonly int DEATH = Animator.StringToHash("Death");
+    static readonly int RESPAWN = Animator.StringToHash("Respawn");
+    static readonly int HANDS_UP = Animator.StringToHash("HandsUp");
+
+    bool isMoving = false, isRolling = false, isDead = false, isFlipped = false;
+
+    public void SetSpriteFlipX(bool flip)
+    {
+        if (flip != isFlipped)
+        {
+            if (flip)
+            {
+                playersArtsSpriteRenderer.flipX = true;
+                isFlipped = true;
+            }
+            else
+            {
+                playersArtsSpriteRenderer.flipX = false;
+                isFlipped = false;
             }
         }
     }
 
-    public void startMoving() {
-        if(!isMoving) {
-            _playerAnimator.SetBool("Moving", true);
+    public void StartMoving()
+    {
+        if (!isMoving)
+        {
+            playerAnimator.SetBool(MOVING, true);
             isMoving = true;
         }
     }
 
-    public void stopMoving() {
-        if(isMoving) {
-            _playerAnimator.SetBool("Moving", false);
+    public void StopMoving()
+    {
+        if (isMoving)
+        {
+            playerAnimator.SetBool(MOVING, false);
             isMoving = false;
         }
     }
 
-    public void startRolling() {
-        if(!isRolling) {
-            _playerAnimator.SetBool("Rolling", true);
+    public void StartRolling()
+    {
+        if (!isRolling)
+        {
+            playerAnimator.SetBool(ROLLING, true);
             isRolling = true;
         }
-    }  
+    }
 
-    public void stopRolling() {
-        if (isRolling) {
-            _playerAnimator.SetBool("Rolling", false);
+    public void StopRolling()
+    {
+        if (isRolling)
+        {
+            playerAnimator.SetBool(ROLLING, false);
             isRolling = false;
         }
     }
 
-    private void Update() {
-        if(isRolling) {
-            if(!isFlipped) playersArtsTransform.Rotate (Vector3.forward * -500f * Time.deltaTime);
-            else  playersArtsTransform.Rotate (Vector3.forward * 500f * Time.deltaTime);
+    void Update()
+    {
+        if (isRolling)
+        {
+            if (!isFlipped) playersArtsTransform.Rotate(Vector3.forward * -500f * Time.deltaTime);
+            else playersArtsTransform.Rotate(Vector3.forward * 500f * Time.deltaTime);
         }
-        else playersArtsTransform.eulerAngles = Vector3.forward * 0f;
+        else
+        {
+            playersArtsTransform.eulerAngles = Vector3.forward * 0f;
+        }
     }
 
-    private bool isFlyingUp=false;
-    public void playerFlyingUp(bool state) {
-        if (state != isFlyingUp) {
+    bool isFlyingUp = false;
+
+    public void PlayerFlyingUp(bool state)
+    {
+        if (state != isFlyingUp)
+        {
             isFlyingUp = state;
-            _playerAnimator.SetBool("InAirUp", state);
-        } 
-    }
-
-    private bool isFlyingDown=false;
-    public void playerFlyingDown(bool state) {
-        if (state != isFlyingDown) {
-            isFlyingDown = state;
-            _playerAnimator.SetBool("InAirDown", state);
+            playerAnimator.SetBool(IN_AIR_UP, state);
         }
     }
 
-    public void playerDies() {
-        if (!isDead) {
-            _playerAnimator.SetTrigger("Death");
-            _playerAnimator.ResetTrigger("Respawn");
+    bool isFlyingDown = false;
+
+    public void PlayerFlyingDown(bool state)
+    {
+        if (state != isFlyingDown)
+        {
+            isFlyingDown = state;
+            playerAnimator.SetBool(IN_AIR_DOWN, state);
+        }
+    }
+
+    public void PlayerDies()
+    {
+        if (!isDead)
+        {
+            playerAnimator.SetTrigger(DEATH);
+            playerAnimator.ResetTrigger(RESPAWN);
             isDead = true;
         }
     }
 
-    public void playerRespawns() {
-        if (isDead) {
-            _playerAnimator.SetTrigger("Respawn");
-            _playerAnimator.ResetTrigger("Death");
+    public void PlayerRespawns()
+    {
+        if (isDead)
+        {
+            playerAnimator.SetTrigger(RESPAWN);
+            playerAnimator.ResetTrigger(DEATH);
             isDead = false;
         }
     }
 
-    public void playerHasHandsUp (bool state) {
-        _playerAnimator.SetBool("HandsUp", state);
+    public void PlayerHasHandsUp()
+    {
+        playerAnimator.SetTrigger(HANDS_UP);
     }
 }
