@@ -17,6 +17,9 @@ public class KillPlayer : MonoBehaviour
 
     public void PlayerDies()
     {
+        if (GameManager.Instance.CurrentLevel == Levels.Hub) return;
+        Transform playerCarryPos = GameObject.FindWithTag("PlayerCarryPosition")?.transform;
+        if (playerCarryPos != null && playerCarryPos.childCount > 0) return;
         if (enabled) return; //Already dead
         
         Debug.Log("Player dies :)");
