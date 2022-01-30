@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     ColorEnum debugEnableColor = ColorEnum.None;
 
     ColorManager colorManager = null;
+    ColorEnum colorToBeUnlocked = ColorEnum.None;
 
     void Awake()
     {
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void OnBlenderCompleted()
     {
+        Debug.Log("OnBlenderCompleted");
         if (ColorToBeUnlocked == ColorEnum.None) return;
         
         EnableColor(ColorToBeUnlocked);
@@ -65,7 +67,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         
-        if (enabledColors.HasFlag(color))
+        Debug.Log($"EnableColor({color})");
+        if (!enabledColors.HasFlag(color))
         {
             enabledColors |= color;
             colorManager.EnableColor(color);
@@ -81,7 +84,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public ColorEnum ColorToBeUnlocked { get; set; } = ColorEnum.None;
+    public ColorEnum ColorToBeUnlocked
+    {
+        get
+        {
+            return colorToBeUnlocked;
+        }
+        set
+        {
+            Debug.Log($"ColorToBeUnlocked set to {colorToBeUnlocked}");
+            colorToBeUnlocked = value;
+        }
+    }
+
     public ColorEnum EnabledColors { get { return enabledColors; } }
 }
 

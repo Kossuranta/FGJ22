@@ -1,91 +1,77 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ColorManager : MonoBehaviour
 {
-    [Serializable]
-    public class ColorMaskData
-    {
-        [SerializeField]
-        Transform transform = null;
-
-        [SerializeField]
-        ColorEnum color = ColorEnum.None;
-
-        public Transform Transform { get { return transform; } }
-        public ColorEnum Color { get { return color; } }
-    }
-    
-    [SerializeField]
-    ColorMaskData[] colorMasks = null;
-
     [SerializeField]
     float colorEnableDuration = 5f;
-
+    
     float timer = 0;
-    ColorMaskData colorToBeEnabled = null;
     GameManager gameManager = null;
 
-    Vector3 currentResolution = new Vector3(1930, 1090, 1);
+    readonly Dictionary<ColorEnum, List<SpriteFader>> spriteFadersDictionary = new();
+    ColorEnum colorToBeFadedIn = ColorEnum.None;
+
+    void Awake()
+    {
+        SpriteFader[] spriteFaders = FindObjectsOfType<SpriteFader>();
+
+        foreach (SpriteFader spriteFader in spriteFaders)
+        {
+            if (!spriteFadersDictionary.ContainsKey(spriteFader.Color))
+                spriteFadersDictionary.Add(spriteFader.Color, new List<SpriteFader>());
+            
+            spriteFadersDictionary[spriteFader.Color].Add(spriteFader);
+        }
+    }
 
     public void Setup(GameManager gameManager)
     {
         this.gameManager = gameManager;
-        
-        //Some extra size to be safe
-        int width = Screen.width + 10;
-        int height = Screen.height + 10;
-        currentResolution = new Vector3(width, height, 1);
 
         UpdateEnabledColorMasks();
     }
 
     void UpdateEnabledColorMasks()
     {
-        foreach (ColorMaskData colorMaskData in colorMasks)
+        foreach (KeyValuePair<ColorEnum,List<SpriteFader>> kvp in spriteFadersDictionary)
         {
-            if (gameManager.EnabledColors.HasFlag(colorMaskData.Color))
-                colorMaskData.Transform.localScale = currentResolution;
+            if (gameManager.EnabledColors.HasFlag(kvp.Key))
+            {
+                foreach (SpriteFader spriteFader in kvp.Value)
+                {
+                    Color color = spriteFader.SpriteRenderer.color;
+                    color.a = 0;
+                    spriteFader.SpriteRenderer.color = color;
+                }
+            }
         }
     }
 
     public void EnableColor(ColorEnum color)
     {
-        if (gameManager.EnabledColors.HasFlag(color)) return;
-        
-        colorToBeEnabled = GetColorMaskData(color);
+        Debug.Log($"FadeIn color: {color}");
+        colorToBeFadedIn = color;
         timer = 0;
-    }
-
-    ColorMaskData GetColorMaskData(ColorEnum color)
-    {
-        foreach (ColorMaskData colorMaskData in colorMasks)
-        {
-            if (colorMaskData.Color.HasFlag(color))
-                return colorMaskData;
-        }
-
-        return null;
     }
 
     public void Update()
     {
-        int width = Screen.width + 10;
-        int height = Screen.height + 10;
-
-        //If resolution has changed
-        if (currentResolution.x != width || currentResolution.y != height)
-        {
-            UpdateEnabledColorMasks();
-        }
+        if (colorToBeFadedIn == ColorEnum.None) return;
         
-        if (colorToBeEnabled != null)
-        {
-            timer += Time.deltaTime / colorEnableDuration;
-            colorToBeEnabled.Transform.localScale = Vector3.Lerp(Vector3.zero, currentResolution, timer);
+        timer += Time.deltaTime / colorEnableDuration;
 
-            if (timer >= 1)
-                colorToBeEnabled = null;
+        if (spriteFadersDictionary.TryGetValue(colorToBeFadedIn, out List<SpriteFader> spriteFaders))
+        {
+            foreach (SpriteFader spriteFader in spriteFaders)
+            {
+                Color color = spriteFader.SpriteRenderer.color;
+                color.a = Mathf.Lerp(1f, 0f, timer);
+                spriteFader.SpriteRenderer.color = color;
+            }
         }
+
+        if (timer >= 1)
+            colorToBeFadedIn = ColorEnum.None;
     }
 }
