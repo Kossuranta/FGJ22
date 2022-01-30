@@ -74,7 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider2D: {fileID: 6998247099836210157}
   pickupDuration: 0.5
-  carryAwayDuration: 1
+  carryAwayDuration: 3
   kidnapTarget: {fileID: 7599654358978858000}
   colorToBeUnlocked: 4
 --- !u!1001 &7093935147197589055
